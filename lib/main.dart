@@ -2,11 +2,13 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const Main());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+/// root in this application
+class Main extends StatelessWidget {
+  /// constructor for creating main widget
+  const Main({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +20,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+/// Widget with text and colored background
 class MyHomePage extends StatefulWidget {
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -28,20 +31,21 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Color _color = Colors.white;
 
-  void changeColor() {
-    setState(() {
-      try {
-        _color = Color.fromARGB(
-          _random.nextInt(256),
-          _random.nextInt(256),
-          _random.nextInt(256),
-          _random.nextInt(256),
-        );
-      } catch (e) {
-        const Text('Something went wrong');
-      }
-    });
-  }
+  void changeColor() => {
+        setState(() {
+          try {
+            const n = 256;
+            _color = Color.fromARGB(
+              _random.nextInt(n),
+              _random.nextInt(n),
+              _random.nextInt(n),
+              _random.nextInt(n),
+            );
+          } catch (e) {
+            const Text('Something went wrong');
+          }
+        })
+      };
 
   @override
   Widget build(BuildContext context) {
